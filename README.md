@@ -3,6 +3,8 @@
 This is an **Inventory Management System** built using [Next.js](https://nextjs.org), a React framework for building modern web applications. The project is designed to help businesses manage their inventory efficiently by providing features like inventory tracking, data visualization, and more.
 
 
+![Demo Model](https://github.com/spranjal3301/Inventory-Management-System/blob/main/preview.png?raw=true)
+
 
 ## Project Overview
 
