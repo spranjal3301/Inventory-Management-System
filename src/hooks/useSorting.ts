@@ -22,7 +22,7 @@ export function useSorting() {
         return sortDirection === "asc" ? aVal - bVal : bVal - aVal;
       }
       const aStr = String(aVal ?? "").toLowerCase();
-      const bStr = String(bVal ?? "").toLowerCase();
+      const bStr = String(bVal ?? "" ).toLowerCase();
       return sortDirection === "asc"
         ? aStr.localeCompare(bStr)
         : bStr.localeCompare(aStr);
@@ -33,7 +33,10 @@ export function useSorting() {
       return data.sort((a, b) => compare(a.component_name, b.component_name));
     }
 
-    // Deep clone to avoid mutating original
+
+    
+
+    
     const sorted = [...data].map((component) => {
       if (Array.isArray(component.subcomponents)) {
         const sortedSubs = [...component.subcomponents].sort((a, b) => {
@@ -58,7 +61,14 @@ export function useSorting() {
       return component;
     });
 
-   
+  
+    sorted.sort((a, b) => {
+      const c = a.subcomponents.reduce((acc, ele) => acc + (ele.total_quantity || 0), 0);
+      const d = b.subcomponents.reduce((acc, ele) => acc + (ele.total_quantity || 0), 0);
+      return c - d;
+    });
+    
+    
     return sorted;
   };
 
